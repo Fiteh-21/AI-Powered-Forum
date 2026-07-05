@@ -2,16 +2,11 @@
 import 'dotenv/config';
 import mysql from 'mysql2/promise';
 
+const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`;
+
 // A pool is used instead of a single connection so multiple requests can
 // run queries concurrently without waiting for each other.
-export const db = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  port: Number(process.env.DB_PORT || 3306),
-  user: process.env.DB_USER || 'root',
-  // DB_PASS is a fallback alias kept for local dev convenience.
-  password: process.env.DB_PASSWORD || process.env.DB_PASS || '',
-  database: process.env.DB_NAME || 'evangadi_forum',
-});
+export const db = mysql.createPool(urlDB);
 
 // Guards against calling db.execute with undefined/null params, which would cause a runtime error. Also ensures params is an array or object, which is what mysql2 expects.
 const ensureParams = (params) => {
