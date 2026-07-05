@@ -1,0 +1,14 @@
+# OS / editor cruft
+.DS_Store
+
+# Root-level dependencies (installed by the root package.json dev scripts)
+node_modules/
+package-lock.json
+plans/
+docs/
+CHANGELOG.md
+Implementation.md
+backend/email-preview.html
+backend/test-confirmation-email.html
+node_modules/
+uploads/
