@@ -1,0 +1,228 @@
+/**
+ * Navbar.module.css: sticky header, search field, user menu.
+ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: var(--surface);
+  padding-left: 0.55rem;
+  padding-right: 0.55rem;
+  min-height: 2.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar__titleBlock {
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: min(32rem, 46vw);
+}
+
+.navbar__pageTitle {
+  font-weight: var(--font-semibold);
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.navbar__pageSubtitle {
+  margin: 0.0625rem 0 0;
+  font-size: 0.78rem;
+  font-weight: var(--font-normal);
+  color: var(--text-tertiary);
+  line-height: 1.4;
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .navbar__pageSubtitle {
+    display: block;
+  }
+}
+
+.navbar__search {
+  flex: 1;
+  max-width: 28.5rem;
+  position: relative;
+}
+
+.navbar__search-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.55rem;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  color: var(--text-secondary);
+}
+
+.navbar__search-input {
+  width: 100%;
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--border);
+  border-radius: 0.32rem;
+  padding-top: 0.18rem;
+  padding-bottom: 0.18rem;
+  padding-left: 1.85rem;
+  padding-right: 5.5rem;
+  font-size: 0.95rem;
+  transition: var(--transition-base);
+  color: var(--text-primary);
+}
+
+.navbar__semantic-button {
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.18rem;
+  padding: 0.16rem 0.48rem;
+  background-color: var(--primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 0.22rem;
+  font-size: 0.82rem;
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.navbar__search--semantic .navbar__search-input {
+  background-color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.navbar__semantic-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.navbar__semantic-button:focus {
+  outline: none;
+}
+
+.navbar__semantic-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.navbar__semantic-text {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .navbar__semantic-text {
+    display: inline;
+  }
+}
+
+.navbar__search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.navbar__search-input:focus {
+  /* Handled by global theme.css focus styles */
+  background-color: var(--surface);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.navbar__notification {
+  position: relative;
+  padding: 0.5rem;
+  color: var(--text-secondary);
+  transition: var(--transition-base);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+}
+
+.navbar__notification:hover {
+  color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.navbar__badge {
+  position: absolute;
+  top: 0.32rem;
+  right: 0.32rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--primary);
+  border: 2px solid var(--surface);
+}
+
+.navbar__user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0.65rem;
+  border-left: 1px solid var(--border);
+}
+
+.navbar__user-name {
+  font-size: 0.95rem;
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .navbar__user-name {
+    display: block;
+  }
+}
+
+.navbar__user-avatar {
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: var(--radius-full);
+  background-color: var(--surface-container-high);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.navbar__user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navbar__logout {
+  position: relative;
+  padding: 0.28rem;
+  color: var(--text-secondary);
+  transition: var(--transition-base);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+}
+
+.navbar__logout:hover {
+  color: var(--error);
+  background-color: var(--error-light);
+}
+
+.navbar__logout:focus {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}

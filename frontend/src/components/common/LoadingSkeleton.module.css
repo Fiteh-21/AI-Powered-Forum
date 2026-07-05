@@ -1,0 +1,35 @@
+/**
+ * LoadingSkeleton.module.css
+ * Simple loading indicator for page content.
+ */
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  min-height: 20rem;
+  color: var(--text-secondary);
+}
+
+.spinner {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 3px solid var(--surface-container-highest);
+  border-top-color: var(--primary);
+  border-radius: var(--radius-full);
+  animation: skeletonSpin 0.85s linear infinite;
+}
+
+.text {
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+@keyframes skeletonSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
