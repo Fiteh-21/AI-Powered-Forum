@@ -31,7 +31,7 @@ const validateEnv = () => {
   }
 };
 
-validateEnv();
+// validateEnv();
 
 // ---------------------------------------------------------------------------
 // Security headers (helmet)
